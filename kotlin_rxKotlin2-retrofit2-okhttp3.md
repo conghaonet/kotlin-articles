@@ -31,5 +31,5 @@ tags:
 
 # rxKotlin2 + retrofit2 + okhttp3 实战
 
-![Kotlin-vscode.mp4](Kotlin-vscode.mp4)
+![kotlin-vscode.mp4](kotlin-vscode.mp4)
 
