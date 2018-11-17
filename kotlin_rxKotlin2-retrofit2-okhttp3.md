@@ -39,5 +39,13 @@ tags:
 
 下面将主要围绕本次network module重构展开对kotlin讲解。
 
-## 依赖环境
+## 主要依赖环境
+- org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.21
+- io.reactivex.rxjava2:rxjava:2.1.2
+- io.reactivex.rxjava2:rxkotlin:2.1.0
+- io.reactivex.rxjava2:rxandroid:2.0.1
+- com.squareup.okhttp3:okhttp:3.6.0
+- com.squareup.retrofit2:adapter-rxjava2:2.2.0
+- com.squareup.retrofit2:retrofit:2.2.0
+- com.squareup.retrofit2:converter-gson:2.2.0
 
