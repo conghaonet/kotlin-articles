@@ -9,13 +9,9 @@ categories:
 tags:
 
 - Kotlin
-- rxkotlin
 - rxkotlin2
-- retrofit
 - retrofit2
-- okhttp
 - okhttp3
-- rxjava
 - rxjava2
 
 ---
