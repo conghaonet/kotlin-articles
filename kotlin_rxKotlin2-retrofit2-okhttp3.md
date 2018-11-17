@@ -33,4 +33,4 @@ tags:
 4. 所有的 “*” 优先级高于 “+”
 
 # rxKotlin2 + retrofit2 + okhttp3 实战
-
+最近刚刚把服务于北京高精尖项目的network libray用kotlin重构完成，代码量从3100多行一下降到了1500多行，代码得到大幅精简的同时，还能有效降低bug率。
