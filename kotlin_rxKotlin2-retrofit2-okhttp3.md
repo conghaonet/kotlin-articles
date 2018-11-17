@@ -25,6 +25,13 @@ tags:
 
 ![](images/template.jpg)
 
+文章 markdown 文件 **分级规范** 如下：
+
+1. 根据内容使用 “#，##，###” 依次标识高级别分级
+2. 次级别使用 “-，*，+” 三种符合区分
+3. 所有的 “-” 优先级高于 “*”
+4. 所有的 “*” 优先级高于 “+”
+
 # rxKotlin2 + retrofit2 + okhttp3 实战
 
 ![kotlin-vscode.mp4](kotlin-vscode.mp4)
