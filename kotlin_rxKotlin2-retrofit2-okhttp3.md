@@ -53,7 +53,7 @@ tags:
 - FavoriteStatus.kt
 ```
 @Parcelize
-data class FavoriteStatus(var isIs_favorite: Boolean = false,
-                          var favorite_id: String?,
-                          var favorite_num: Int = 0) : Parcelable
+data class FavoriteStatus(@SerializedName("isIs_favorite") var isFavorite: Boolean = false,
+                          @SerializedName("favorite_id") var favoriteId: String?,
+                          @SerializedName("favorite_num")  var favoriteNum: Int = 0) : Parcelable
 ```
