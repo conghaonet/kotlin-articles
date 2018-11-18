@@ -118,3 +118,4 @@ interface SlpService {
     fun getFavorite(@Query("favorite_id") favoriteId: String): Flowable<FavoriteStatus>
 }
 ```
+API接口定义比较简单，java跟kotlin的区别不大，这里不贴Java代码了。
