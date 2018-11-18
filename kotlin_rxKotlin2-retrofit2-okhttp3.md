@@ -135,7 +135,7 @@ class RequestClient private constructor() {
                     .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS))
                     //自定义okhttp拦截器
                     .addInterceptor(SlpRequestInterceptor())
-                    //OkHttpClient.Builder的扩展函数，为版本小于等于Build.VERSION_CODES.KITKAT的提供访问https能力
+                    //OkHttpClient.Builder的扩展函数，为版本小于等于Build.VERSION_CODES.KITKAT时提供访问https能力
                     .enableTls12OnKitkat()
                     .build()
         }
