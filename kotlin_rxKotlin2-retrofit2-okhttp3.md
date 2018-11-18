@@ -187,3 +187,7 @@ fun<T> Flowable<T>.schedule(subscribeOn : Scheduler = Schedulers.io(),
     return subscribeOn(subscribeOn).observeOn(observeOn)
 }
 ```
+Kotlin提供了一种方法——可以在既不需要继承父类，也不需要使用类似装饰器设计模式的情况下，对类进行扩展。简直是黑科技! Flowable<T>.schedule()就是我给Flowable定义的扩展函数，后面会讲到如何使用。
+
+- 默认参数
+    我们给subscribeOn、observeOn都分别定义了默认的参数值，如果我们在调用扩展函数schedule()时，刚好是要在io线程观察并在主线程订阅，那么在调用schedule()时就可以不需要传递任何参数了。
