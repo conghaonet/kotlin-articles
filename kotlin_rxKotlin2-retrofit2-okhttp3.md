@@ -49,4 +49,11 @@ tags:
 - com.squareup.retrofit2:retrofit:2.2.0
 - com.squareup.retrofit2:converter-gson:2.2.0
 
-## 定义
+## 定义数据类
+- FavoriteStatus.kt
+```
+@Parcelize
+data class FavoriteStatus(var isIs_favorite: Boolean = false,
+                          var favorite_id: String = "",
+                          var favorite_num: Int = 0) : Parcelable
+```
