@@ -125,7 +125,7 @@ API接口定义比较简单，java跟kotlin的区别不大，这里不贴Java代
 ```
 const val COMPONENT_ID = "com.nd.sdp.component.demo"
 /**
- * base_url在sdp编辑器上的对应值：http://demo.api.sdp.nd/v1/
+ * base_url在sdp编辑器上的对应值：http://demo.debug.api.sdp.nd/v1/
  */
 const val BASE_URL = "base_url"
 class RequestClient private constructor() {
@@ -135,6 +135,7 @@ class RequestClient private constructor() {
                     .connectTimeout(10, TimeUnit.SECONDS)
                     .readTimeout(30, TimeUnit.SECONDS)
                     .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS))
+                    //自定义okhttp拦截器
                     .addInterceptor(SlpRequestInterceptor())
                     .enableTls12OnKitkat()
                     .build()
@@ -143,6 +144,7 @@ class RequestClient private constructor() {
         private fun retrofit(baseUrl: String): Retrofit {
             return Retrofit.Builder()
                     .baseUrl(baseUrl)
+                    //自定义Converter.Factory
                     .addConverterFactory(SlpGsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .client(DEFAULT_CLIENT)
@@ -156,7 +158,9 @@ class RequestClient private constructor() {
         fun <T> buildService(baseUrl: String, serviceClass: Class<T>): T {
             return retrofit(baseUrl).create(serviceClass)
         }
-
+        /**
+         * 使用业务组件的环境配置中预定义的base_url
+         */
         @JvmStatic
         fun <T> buildService(serviceClass: Class<T>): T {
             val configManager = AppFactory.instance().configManager
