@@ -49,7 +49,7 @@ tags:
 
 ## 定义数据类
 - FavoriteStatus.kt：
-```
+```kotlin
 @Parcelize
 data class FavoriteStatus(@SerializedName("isIs_favorite") var isFavorite: Boolean = false,
                           @SerializedName("favorite_id") var favoriteId: String="",
@@ -57,7 +57,7 @@ data class FavoriteStatus(@SerializedName("isIs_favorite") var isFavorite: Boole
                           @SerializedName("favorite_desc") var favoriteDesc: String?) : Parcelable
 ```
 - FavoriteStatus.java：
-```
+```java
 public class FavoriteStatus implements Serializable {
 
     @SerializedName("is_favorite")
@@ -110,7 +110,7 @@ public class FavoriteStatus implements Serializable {
 
 ## 定义API接口
 - SlpService.kt
-```
+```kotlin
 interface SlpService {
     @GET("favorites/{favorite_id}")
     fun getFavorite(@Query("favorite_id") favoriteId: String): Flowable<FavoriteStatus>
@@ -120,7 +120,7 @@ API接口定义比较简单，java跟kotlin的区别不大，这里不贴Java代
 
 ## 封装okhttp+retrofit
 - RequestClient.kt
-```
+```kotlin
 const val COMPONENT_ID = "com.nd.sdp.component.demo"
 /**
  * base_url在sdp编辑器上的对应值：http://demo.debug.api.sdp.nd/v1/
