@@ -54,6 +54,7 @@ tags:
 ```
 @Parcelize
 data class FavoriteStatus(@SerializedName("isIs_favorite") var isFavorite: Boolean = false,
-                          @SerializedName("favorite_id") var favoriteId: String?,
-                          @SerializedName("favorite_num")  var favoriteNum: Int = 0) : Parcelable
+                          @SerializedName("favorite_id") var favoriteId: String="",
+                          @SerializedName("favorite_num")  var favoriteNum: Int = 0,
+                          @SerializedName("favorite_desc") var favoriteDesc: String?) : Parcelable
 ```
