@@ -194,6 +194,7 @@ Kotlin提供了一种方法——可以在既不需要继承父类，也不需�
     我们给subscribeOn、observeOn都分别定义了默认的参数值，如果我们在调用扩展函数schedule()时，刚好是要在io线程执行并在主线程观察，那么在调用schedule()时就可以不需要传递任何参数了。如果默认值跟你的实际调用场景不一致也没关系，你完全可以按照你的需要去手工设置其中的某个参数的赋值（后面会讲到）。
     
 - @JvmOverloads 注解
+
     由于我们设置了参数默认值，为了兼容java，我们给函数加上了@JvmOverloads注解，以下是Java在调用schedule()时的代码片段：
     ![](https://upload-images.jianshu.io/upload_images/15007862-2e09823475317fec.jpg)
     看，编译器直接为我们新增了两个我们没有定义的函数，其中的$receiver就是我们代码片段中定义的flowable。如果我们在kotlin中定义了默认参数，且为了兼容java，基本上都要用到JvmOverloads注解，尤其是我们定义了带默认参数的构造方法时。（这里就不再对JvmOverloads展开讨论了）
