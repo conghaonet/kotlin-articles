@@ -174,7 +174,7 @@ class RequestClient private constructor() {
 　　代码中的COMPONENT_ID、BASE_URL都使用了const修饰符，从字面很容易理解const 指的是常量，那它跟我们在java中定义的 public static final 有何区别呢？  
 　　const 修饰的 COMPONENT_ID 是**编译时常量**，这种类型的常量的值早在编译期间就已经确定，相当于这个常量值被固化到了App安装包里面。无论App在哪部手机上安装、在何时运行，编译时常量的值都是统一且唯一的，不会随环境的变化产生任何变化。而java中定义的是**运行时常量**，这种类型的常量其实不是严格意义上的常量，更确切地说，应该是一个仅能赋值一次的只读属性（这里不对编译时常量做更多讨论）。  
 　　**编译时常量才是真正意义上的常量。**  
-　　_需要注意的是，const只能修饰val，不能修饰var。_
+　　*_注意：const只能修饰 val，不能修饰 var。_
 # Flowable的扩展函数
 NetworkExtFun.kt
 ```kotlin
