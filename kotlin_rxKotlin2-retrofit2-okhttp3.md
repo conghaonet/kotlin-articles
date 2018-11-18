@@ -54,6 +54,6 @@ tags:
 ```
 @Parcelize
 data class FavoriteStatus(var isIs_favorite: Boolean = false,
-                          var favorite_id: String = "",
+                          var favorite_id: String?,
                           var favorite_num: Int = 0) : Parcelable
 ```
