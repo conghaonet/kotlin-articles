@@ -205,7 +205,7 @@ class RequestClient private constructor() {
 　　RequestClient.kt中的httpClient使用by lazy，并且lazy的参数为LazyThreadSafetyMode.SYNCHRONIZED，表示线程安全。这类似于java中的双重校验写法
   
 # Flowable的扩展函数
-NetworkExtFun.kt
+NetworkExtFun.kt  
 ```kotlin
 @JvmOverloads
 fun<T> Flowable<T>.schedule(subscribeOn : Scheduler = Schedulers.io(),
