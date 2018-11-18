@@ -54,7 +54,7 @@ tags:
 ```
 @Parcelize
 data class FavoriteStatus(@SerializedName("isIs_favorite") var isFavorite: Boolean = false,
-                          @SerializedName("favorite_id") var favoriteId: String="",
+                          @SerializedName("favorite_id") val favoriteId: String="",
                           @SerializedName("favorite_num")  var favoriteNum: Int = 0,
                           @SerializedName("favorite_desc") var favoriteDesc: String?) : Parcelable
 ```
@@ -70,6 +70,10 @@ public class FavoriteStatus implements Serializable {
 
     @SerializedName("favoriteNum")
     private int favoriteNum;
+
+    @SerializedName("favorite_desc")
+    private int favoriteDesc;
+
 
     public boolean isFavorite() {
         return isFavorite;
@@ -93,6 +97,14 @@ public class FavoriteStatus implements Serializable {
 
     public void setFavoriteNum(int favoriteNum) {
         this.favoriteNum = favoriteNum;
+    }
+
+    public int getFavoriteDesc() {
+        return favoriteDesc;
+    }
+
+    public void setFavoriteDesc(int favoriteDesc) {
+        this.favoriteDesc = favoriteDesc;
     }
 }
 ```
