@@ -178,7 +178,7 @@ class RequestClient private constructor() {
     <b>编译时常量才是真正意义上的常量。</b>
     
     需要注意的是，const只能修饰val，不能修饰var。
-# 扩展函数
+# Flowable的扩展函数
 NetworkExtFun.kt
 ```kotlin
 @JvmOverloads
