@@ -179,8 +179,8 @@ class RequestClient private constructor() {
 　　**编译时常量才是真正意义上的常量。**  
 　　*_注意：const只能修饰 val，不能修饰 var。_
 - companion object(伴生对象)
-　　Kotlin取消了关键字static，也就无法直接声明静态成员。为了弥补这方面的功能缺陷，Kotlin引入了伴生对象的概念，简单说companion object {... ...}代码中的所有成员都可以在java中已static方式访问。本例中RequestClient还有一种更为简便的定义方式：** 对象声明（Object Declaration）**
-```kotlin
+　　Kotlin取消了关键字static，也就无法直接声明静态成员。为了弥补这方面的功能缺陷，Kotlin引入了伴生对象的概念，简单说companion object {... ...}代码中的所有成员都可以在java中已static方式访问。本例中RequestClient还有一种更为简便的定义方式：**对象声明（Object Declaration）**
+    ```kotlin
 object RequestClient {
 
     ... ...
