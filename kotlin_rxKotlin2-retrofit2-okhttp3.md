@@ -96,3 +96,4 @@ public class FavoriteStatus implements Serializable {
     private int favoriteNum;
 }
 ```
+一个简单数据类就精简了几十行代码，而且kotlin还帮我们实现了Parcelable，Parcelable比Serializable效率高很多大家都清楚，之所以很多人还在用Serializable，其中一点就是因为Parcelable实现起来更麻烦。
