@@ -208,6 +208,10 @@ class RequestClient private constructor() {
   ```kotlin
   RequestClient.Companion.buildService(SlpService.class);
   ```
+使用@JvmStatic注解的调用方式为:
+  ```kotlin
+  RequestClient.buildService(SlpService.class);
+  ```
   
 # Flowable的扩展函数
 - NetworkExtFun.kt
