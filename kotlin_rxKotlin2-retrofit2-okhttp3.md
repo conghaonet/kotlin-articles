@@ -130,7 +130,7 @@ const val COMPONENT_ID = "com.nd.sdp.component.demo"
 const val BASE_URL = "base_url"
 class RequestClient private constructor() {
     companion object {
-        private val DEFAULT_CLIENT by lazy {
+        private val httpClient by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             OkHttpClient.Builder()
                     .connectTimeout(10, TimeUnit.SECONDS)
                     .readTimeout(30, TimeUnit.SECONDS)
@@ -148,7 +148,7 @@ class RequestClient private constructor() {
                     //自定义Converter.Factory
                     .addConverterFactory(SlpGsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .client(DEFAULT_CLIENT)
+                    .client(httpClient)
                     .build()
         }
 
