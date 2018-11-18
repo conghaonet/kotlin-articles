@@ -108,7 +108,7 @@ public class FavoriteStatus implements Serializable {
     }
 }
 ```
-　　一个简单数据类就精简了几十行代码，当然java也可以借助第三方框架实现类似kotlin的数据类写法，但毕竟kotlin原生就支持，而且kotlin还帮我们实现了Parcelable，Parcelable比Serializable效率高很多大家都清楚，之所以很多人还在用Serializable，其中一点就是因为Parcelable实现起来更麻烦。
+　　一个简单数据类就精简了几十行代码，当然java也可以借助第三方框架实现类似kotlin的数据类写法，但毕竟kotlin原生就支持，而且kotlin还帮我们实现了Parcelable，Parcelable比Serializable效率高很多大家都清楚，之所以有很多人还在用Serializable，其中一点就是因为Parcelable实现起来更麻烦。
 
 ## 定义API接口
 - SlpService.kt
