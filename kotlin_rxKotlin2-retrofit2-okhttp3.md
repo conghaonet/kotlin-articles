@@ -158,6 +158,7 @@ class RequestClient private constructor() {
         fun <T> buildService(baseUrl: String, serviceClass: Class<T>): T {
             return retrofit(baseUrl).create(serviceClass)
         }
+        
         /**
          * 使用业务组件的环境配置中预定义的base_url
          */
