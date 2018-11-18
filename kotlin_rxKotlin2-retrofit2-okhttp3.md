@@ -119,3 +119,51 @@ interface SlpService {
 }
 ```
 API接口定义比较简单，java跟kotlin的区别不大，这里不贴Java代码了。
+
+## 封装okhttp+retrofit
+- RequestClient.kt
+```
+const val COMPONENT_ID = "com.nd.sdp.component.demo"
+/**
+ * base_url在sdp编辑器上的对应值：http://demo.api.sdp.nd/v1/
+ */
+const val BASE_URL = "base_url"
+class RequestClient private constructor() {
+    companion object {
+        private val DEFAULT_CLIENT by lazy {
+            OkHttpClient.Builder()
+                    .connectTimeout(10, TimeUnit.SECONDS)
+                    .readTimeout(30, TimeUnit.SECONDS)
+                    .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS))
+                    .addInterceptor(SlpRequestInterceptor())
+                    .enableTls12OnKitkat()
+                    .build()
+        }
+
+        private fun retrofit(baseUrl: String): Retrofit {
+            return Retrofit.Builder()
+                    .baseUrl(baseUrl)
+                    .addConverterFactory(SlpGsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .client(DEFAULT_CLIENT)
+                    .build()
+        }
+
+        /**
+         * @param baseUrl 使用自定义的baseUrl进行构建对应的retrofit实例
+         */
+        @JvmStatic
+        fun <T> buildService(baseUrl: String, serviceClass: Class<T>): T {
+            return retrofit(baseUrl).create(serviceClass)
+        }
+
+        @JvmStatic
+        fun <T> buildService(serviceClass: Class<T>): T {
+            val configManager = AppFactory.instance().configManager
+            val configBean = configManager.getServiceBean(COMPONENT_ID)
+            val baseUrl = configBean.getProperty(BASE_URL, null)
+            return buildService(baseUrl, serviceClass)
+        }
+    }
+}
+```
