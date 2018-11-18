@@ -50,7 +50,7 @@ tags:
 - com.squareup.retrofit2:converter-gson:2.2.0
 
 ## 定义数据类
-- FavoriteStatus.kt
+- FavoriteStatus.kt：
 ```
 @Parcelize
 data class FavoriteStatus(@SerializedName("isIs_favorite") var isFavorite: Boolean = false,
@@ -58,7 +58,7 @@ data class FavoriteStatus(@SerializedName("isIs_favorite") var isFavorite: Boole
                           @SerializedName("favorite_num")  var favoriteNum: Int = 0,
                           @SerializedName("favorite_desc") var favoriteDesc: String?) : Parcelable
 ```
-FavoriteStatus.java
+- FavoriteStatus.java：
 ```
 public class FavoriteStatus implements Serializable {
 
