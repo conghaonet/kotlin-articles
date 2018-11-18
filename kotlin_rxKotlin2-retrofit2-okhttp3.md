@@ -58,3 +58,41 @@ data class FavoriteStatus(@SerializedName("isIs_favorite") var isFavorite: Boole
                           @SerializedName("favorite_num")  var favoriteNum: Int = 0,
                           @SerializedName("favorite_desc") var favoriteDesc: String?) : Parcelable
 ```
+FavoriteStatus.java
+```
+public class FavoriteStatus implements Serializable {
+
+    @SerializedName("is_favorite")
+    private boolean isFavorite;
+
+    @SerializedName("favorite_id")
+    private String favoriteId;
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
+
+    public String getFavoriteId() {
+        return favoriteId;
+    }
+
+    public void setFavoriteId(String favoriteId) {
+        this.favoriteId = favoriteId;
+    }
+
+    public int getFavoriteNum() {
+        return favoriteNum;
+    }
+
+    public void setFavoriteNum(int favoriteNum) {
+        this.favoriteNum = favoriteNum;
+    }
+
+    @SerializedName("favoriteNum")
+    private int favoriteNum;
+}
+```
