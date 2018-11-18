@@ -47,7 +47,7 @@ tags:
 - com.squareup.retrofit2:retrofit:2.2.0
 - com.squareup.retrofit2:converter-gson:2.2.0
 
-由于rxkotlin:2.1.0依赖的rxjava版本是2.1.0，但在白名单中只有io.reactivex.rxjava2:rxjava:2.1.2，所以还需要额外定义rxjava的依赖，否则打包时会提示白名单检查不通过。
+由于rxkotlin:2.1.0依赖的rxjava版本是2.1.0，但在白名单中只有io.reactivex.rxjava2:rxjava:2.1.2，所以还需要额外定义rxjava的依赖，否则打包时会提示与白名单版本不一致。  
 截至本文发布时，以上版本均在白名单中有定义，同学们可以放心使用。
 
 ## 定义数据类
