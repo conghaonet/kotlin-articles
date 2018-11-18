@@ -171,4 +171,5 @@ class RequestClient private constructor() {
 }
 ```
 - const 修饰符：
+
 从字面很容易理解，const指的是常量，那它跟我们在java中定义的 public static final 有何区别呢？const 修饰的 COMPONENT_ID 是<b>编译时常量</b>，这种类型的常量的值早在编译期间就已经确定，相当于这个常量值被固化到了App安装包里面。无论App在哪部手机上安装、在何时运行，编译时常量的值都是统一且唯一的，不会随环境的变化产生任何变化。
