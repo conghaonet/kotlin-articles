@@ -205,13 +205,13 @@ class RequestClient private constructor() {
 　　RequestClient.kt中的httpClient使用by lazy，并且lazy的参数为LazyThreadSafetyMode.SYNCHRONIZED，表示线程安全。这类似于java中的双重校验写法
 - @JvmStatic 注解
   1. 如果在java中访问伴生对象的成员，不加@JvmStatic注解的调用方式为:
-```java
-RequestClient.Companion.buildService(SlpService.class);
-```
+  ```java
+  RequestClient.Companion.buildService(SlpService.class);
+  ```
   2. 使用@JvmStatic注解的调用方式为:
-```java
-RequestClient.buildService(SlpService.class);
-```
+  ```java
+  RequestClient.buildService(SlpService.class);
+  ```
 
 # Flowable的扩展函数
 - NetworkExtFun.kt
