@@ -207,7 +207,8 @@ class RequestClient private constructor() {
 　　如果在java中调用伴生对象的成员，不加@JvmStatic注解的调用方式为:  
     ```java
     RequestClient.Companion.buildService(SlpService.class);
-    ```  
+    ```
+    
 　　使用@JvmStatic注解的调用方式为:  
     ```java
     RequestClient.buildService(SlpService.class);
