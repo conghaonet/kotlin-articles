@@ -233,8 +233,7 @@ Kotlin提供了一种方法——可以在既不需要继承父类，也不需�
 　　看，编译器直接为我们新增了两个我们没有定义的函数，其中的$receiver就是我们代码片段中定义的flowable。如果我们在kotlin中定义了默认参数，且为了兼容Java，基本上都要用到JvmOverloads注解，尤其是我们定义了带默认参数的构造方法时。（这里就不再对JvmOverloads展开讨论了）
 
 # 发起网络请求（大功告成）
-- TryNetworkxActivity.kt
-
+- TryNetworkxActivity.kt：
 ```kotlin
 class TryNetworkxActivity : AppCompatActivity() {
     private val mCompositeDisposable by lazy {
