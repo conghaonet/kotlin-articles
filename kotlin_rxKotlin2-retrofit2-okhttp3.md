@@ -243,10 +243,10 @@ class TryNetworkxActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sdk_demo_activity_try_networkx)
         val service = RequestClient.buildService(SlpService::class.java)
-        val favorite = service.getFavorite("123456").onBackpressureLatest().schedule()
+        val favorite: Flowable<FavoriteBean> = service.getFavorite("123456").onBackpressureLatest().schedule()
         val disposable: Disposable = favorite.subscribeBy(
                 onNext = {
-                    toast(it.toString())
+                    toast("请求成功，返回FavoriteBean：id=${it.favoriteId} isFavorite=${it.isFavorite}")
                 }, onError = {
                     Log.d("TryNetworkxActivity", it.message)
                 }
