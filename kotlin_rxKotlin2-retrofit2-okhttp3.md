@@ -204,11 +204,11 @@ class RequestClient private constructor() {
 　　严格说by和lazy是两个关键字，by用于实现委托（本文不单独对by展开讲解），lazy用于定义延迟加载，lazy前必须用by修饰。  
 　　RequestClient.kt中的httpClient使用by lazy，并且lazy的参数为LazyThreadSafetyMode.SYNCHRONIZED，表示线程安全。这类似于java中的双重校验写法
 - @JvmStatic 注解  
-* 如果在java中访问伴生对象的成员，不加@JvmStatic注解的调用方式为:
+  1. 如果在java中访问伴生对象的成员，不加@JvmStatic注解的调用方式为:
 ```java
 RequestClient.Companion.buildService(SlpService.class);
 ```
-* 使用@JvmStatic注解的调用方式为:
+  2. 使用@JvmStatic注解的调用方式为:
 ```java
 RequestClient.buildService(SlpService.class);
 ```
