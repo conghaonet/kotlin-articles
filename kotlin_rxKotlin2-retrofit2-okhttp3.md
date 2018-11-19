@@ -234,6 +234,7 @@ Kotlin提供了一种方法——可以在既不需要继承父类，也不需�
 
 # 发起网络请求（大功告成）
 - TryNetworkxActivity.kt
+
 ```kotlin
 class TryNetworkxActivity : AppCompatActivity() {
     private val mCompositeDisposable by lazy {
