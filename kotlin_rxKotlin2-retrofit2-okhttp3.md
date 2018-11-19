@@ -50,17 +50,17 @@ tags:
 　　截至本文发布时，以上版本均在白名单中有定义，同学们可以放心使用。
 
 ## 定义数据类
-- FavoriteStatus.kt：
+- FavoriteBean.kt：
 ```kotlin
 @Parcelize
-data class FavoriteStatus(@SerializedName("isIs_favorite") var isFavorite: Boolean = false,
+data class FavoriteBean(@SerializedName("isIs_favorite") var isFavorite: Boolean = false,
                           @SerializedName("favorite_id") var favoriteId: String="",
                           @SerializedName("favorite_num")  var favoriteNum: Int = 0,
                           @SerializedName("favorite_desc") var favoriteDesc: String?) : Parcelable
 ```
-- FavoriteStatus.java：
+- FavoriteBean.java：
 ```java
-public class FavoriteStatus implements Serializable {
+public class FavoriteBean implements Serializable {
 
     @SerializedName("is_favorite")
     private boolean isFavorite;
@@ -115,7 +115,7 @@ public class FavoriteStatus implements Serializable {
 ```kotlin
 interface SlpService {
     @GET("favorites/{favorite_id}")
-    fun getFavorite(@Query("favorite_id") favoriteId: String): Flowable<FavoriteStatus>
+    fun getFavorite(@Path("favorite_id") favoriteId: String): Flowable<FavoriteBean>
 }
 ```
 API接口定义比较简单，Java跟Kotlin的区别不大，这里不贴Java代码了。
@@ -231,3 +231,32 @@ Kotlin提供了一种方法——可以在既不需要继承父类，也不需�
 　　由于我们设置了参数默认值，为了兼容Java，我们给函数加上了@JvmOverloads注解，以下是Java在调用schedule()时的代码片段：
 　　![](https://upload-images.jianshu.io/upload_images/15007862-2e09823475317fec.jpg)
 　　看，编译器直接为我们新增了两个我们没有定义的函数，其中的$receiver就是我们代码片段中定义的flowable。如果我们在kotlin中定义了默认参数，且为了兼容Java，基本上都要用到JvmOverloads注解，尤其是我们定义了带默认参数的构造方法时。（这里就不再对JvmOverloads展开讨论了）
+
+# 发起网络请求（大功告成）
+- TryNetworkxActivity.kt
+```kotlin
+class TryNetworkxActivity : AppCompatActivity() {
+    private val mCompositeDisposable by lazy {
+        CompositeDisposable()
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.sdk_demo_activity_try_networkx)
+        val service = RequestClient.buildService(SlpService::class.java)
+        val favorite = service.getFavorite("123456").onBackpressureLatest().schedule()
+        val disposable: Disposable = favorite.subscribeBy(
+                onNext = {
+                    toast(it.toString())
+                }, onError = {
+                    Log.d("TryNetworkxActivity", it.message)
+                }
+        )
+        mCompositeDisposable.addAll(disposable)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mCompositeDisposable.dispose()
+    }
+}
+```
