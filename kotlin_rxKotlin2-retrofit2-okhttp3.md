@@ -246,16 +246,20 @@ class TryNetworkxActivity : AppCompatActivity() {
         val favorite: Flowable<FavoriteBean> = service.getFavorite("123456").onBackpressureLatest().schedule()
         val disposable: Disposable = favorite.subscribeBy(
                 onNext = {
+                    //请求完成，输出返回结果。
                     toast("请求成功，返回FavoriteBean：id=${it.favoriteId} isFavorite=${it.isFavorite}")
                 }, onError = {
+                    //请求出错，打印堆栈信息。
                     Log.d("TryNetworkxActivity", it.message)
                 }
         )
+        //加入到Disposable集合，以便取消订阅。
         mCompositeDisposable.addAll(disposable)
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        //解除订阅
         mCompositeDisposable.dispose()
     }
 }
