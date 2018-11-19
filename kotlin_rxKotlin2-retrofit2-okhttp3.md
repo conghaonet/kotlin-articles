@@ -242,7 +242,7 @@ class TryNetworkxActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sdk_demo_activity_try_networkx)
-        val service = RequestClient.buildService(SlpService::class.java)
+        val service = RequestClient.buildService(SlpService.class.java)
         val favorite: Flowable<FavoriteBean> = service.getFavorite("123456").onBackpressureLatest().schedule()
         val disposable: Disposable = favorite.subscribeBy(
                 onNext = {
