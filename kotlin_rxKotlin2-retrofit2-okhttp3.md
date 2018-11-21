@@ -253,7 +253,9 @@ class TryNetworkxActivity : AppCompatActivity() {
 - 重点说下Flowable<T>.subscribeBy()
   大家应该已经注意到了，这段代码与Java最大的不同就是favorite.subscribeBy(...)这个函数。先看下rxkotlin2的源码subscribers.kt：
   ```kotlin
+  
   ...
+  
   /**
    * Overloaded subscribe function that allows passing named parameters
    */
@@ -262,5 +264,7 @@ class TryNetworkxActivity : AppCompatActivity() {
       onComplete: () -> Unit = onCompleteStub,
       onNext: (T) -> Unit = onNextStub
       ): Disposable = subscribe(onNext, onError, onComplete)
+  
   ...
+  
   ```
