@@ -281,4 +281,4 @@ class TryNetworkxActivity : AppCompatActivity() {
   当然，我们在实际开发中不会这样写，这里只是说明下默认参数的灵活性。
 # 小结
 通过以上的简单封装，已经实现了最基本的网络请求，但有时我们还需要一些额外的处理，比如：自定义okhttp拦截器、自定义Gson转换器、errorBody的封装，异常http errorCode的统一处理等，下面是本文用到但由于篇幅有些没有展开讨论的代码
-<iframe height=498 width=510 src="http://player.youku.com/embed/XMzkyMzYyNjU4MA==" frameborder=0 allowfullscreen></iframe>
+<iframe height="498" width="510" src="http://player.youku.com/embed/XMzkyMzYyNjU4MA==" frameborder=0 allowfullscreen />
