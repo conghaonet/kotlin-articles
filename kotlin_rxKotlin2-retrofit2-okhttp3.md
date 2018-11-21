@@ -282,5 +282,5 @@ class TryNetworkxActivity : AppCompatActivity() {
 # 小结
 通过以上的简单封装，已经实现了最基本的网络请求，但有时我们还需要一些额外的处理，比如：自定义okhttp拦截器、自定义Gson转换器、errorBody的封装， errorCode的统一处理等，下面是本文用到但由于篇幅有限没有展开讨论的代码：
 
-*[小彩蛋：VS CODE集成kotlin开发环境](http://player.youku.com/embed/XMzkyMzYyNjU4MA==)*
+*[小彩蛋：VS CODE 集成 Kotlin 开发环境](http://player.youku.com/embed/XMzkyMzYyNjU4MA==)*
 <iframe height=498 width=510 src='http://player.youku.com/embed/XMzkyMzYyNjU4MA==' frameborder=0 'allowfullscreen'></iframe>
