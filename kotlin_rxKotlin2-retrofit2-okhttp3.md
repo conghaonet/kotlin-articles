@@ -268,3 +268,4 @@ class TryNetworkxActivity : AppCompatActivity() {
   ...
   
   ```
+  subscribeBy是Flowable的扩展函数，其中的三个参数都有默认值。实际开发中，我们可以根据自己的需要对其中的参数赋值，在TryNetworkxActivity.kt中只用到了onError和onNext。
